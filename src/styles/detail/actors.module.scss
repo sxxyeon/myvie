@@ -1,0 +1,46 @@
+@import '../variables.scss';
+@import '../mixin.scss';
+
+.actors_container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto; 
+    padding: 20px;
+    
+  .actors_wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2em;
+    max-width: 1000px;
+    height: max-content;
+    margin: 20px auto 0;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    .actor {
+      width: 127px;
+      flex-shrink: 0;
+      .actor_pic {
+        width: 100%;
+        height: 127px;
+        border-radius: 100%;
+        overflow: hidden;
+      }
+      p {
+        text-align: center;
+        margin-top: 1em;
+      }
+    }
+  }
+}
+
+@include mobile{
+  .actors_container{
+   //padding-top:40px;
+  }
+}

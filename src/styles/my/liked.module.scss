@@ -1,0 +1,95 @@
+@import '../variables.scss';
+@import '../mixin.scss';
+
+// 프로필
+.profile_container {
+  width: 100%;
+  background: rgb(255,255,255,.1);
+  padding: 10em 0 3.3em;
+  box-sizing: border-box;
+  
+  .profile_wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .left_sec {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+      .thum {
+        width: 130px;
+        height: 130px;
+        background: $primary;
+        align-self: center;
+      }
+      p {
+        align-self: flex-end;
+        span{font-size: 2.3em; font-weight: 800;}
+      }
+    }
+
+    .right_sec {
+      .setting {
+        align-self: flex-start;
+      }
+    }
+  }
+}
+
+// 찜 목록
+.liked {
+  width: 80%;
+  max-width: 1000px;
+  display: grid;
+  margin: 10em auto;
+  grid-template-columns: repeat(auto-fill, minmax(15%, auto));
+  gap: 2em;
+  box-sizing: border-box;
+  > .row_item {
+    position:relative;
+    cursor: pointer;
+    border-radius: 0.5em;
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+    button{
+      background: transparent;
+      border:none;
+      position:absolute;
+      top:0;
+      right: 0;
+    }
+  }
+}
+.no_liked {
+  margin: 10em auto;
+  padding: 10em;
+  text-align: center;
+}
+
+@include mobile{
+  .profile_container{
+    padding: 8rem 20px 2rem;
+  }
+  .liked {
+    width: 100%;
+    margin: 3em auto;
+    padding: 0 20px;
+    grid-template-columns: repeat(auto-fill, minmax(20%, auto));
+  }
+}
+
+@include tablet{
+  .profile_container{
+    padding: 8rem 20px 2rem;
+  }
+  .liked {
+    width: 100%;
+    margin: 3em auto;
+    padding: 0 40px;
+    grid-template-columns: repeat(auto-fill, minmax(18%, auto));
+  }
+}

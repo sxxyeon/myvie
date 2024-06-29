@@ -1,0 +1,29 @@
+@import '../variables.scss';
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 5em;
+    border-top: 1px solid $dgrey;
+    .footer_top{
+        display: flex;
+        flex-direction: row;
+        gap:50px;
+        align-items: center;
+        h1{
+            font-size: 3em;
+            color:$primary;
+            font-weight: 800;
+        }
+        ul{
+            display: flex;
+            flex-direction: row;
+            gap:20px;
+            li{}
+        }
+    }
+    .footer_bottom{
+        text-align: center;
+    }
+}

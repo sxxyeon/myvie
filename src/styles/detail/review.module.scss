@@ -1,0 +1,122 @@
+@import '../variables.scss';
+@import '../mixin.scss';
+.reviews_container {
+  max-width: 1000px;
+  margin: 7em auto;
+  padding: 0 20px 40px;
+
+  // 리뷰 리스트
+  .review {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+    height: 8em;
+    padding: 1em;
+    margin: 0 auto 1.6em;
+    background: rgb(255, 255, 255, 0.12);
+    border-radius: 0.5em;
+    box-sizing: border-box;
+
+    // 공통 스타일
+    .review_top {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.2em 0 0.8em;
+      border-bottom: 1px solid rgb(255, 255, 255, 0.3);
+      .scores_wrap {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        span {
+          display: block;
+        }
+      }
+      .right_sec {
+        display: flex;
+        align-items: center;
+        gap: 2em;
+      }
+    }
+  }
+  .more_btn {
+    width: 60px;
+    margin: 0 auto;
+    button {
+      padding: 0;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  }
+  .no_review {
+    text-align: center;
+    padding: 3em;
+    color: $grey;
+  }
+
+  // 리뷰 에디터
+  .review_editor {
+    margin-top: 5em;
+    .editor {
+      width: 100%;
+      height: max-content;
+      background: rgb(255, 255, 255, 0.12);
+      border-radius: 0.5em;
+      .review_top {
+        padding-top: 0;
+        .scores_wrap {
+          span {
+            cursor: pointer;
+          }
+        }
+        input {
+          padding: 7px;
+          width: 170px;
+          border-radius: 0.2em;
+          border: none;
+          background: rgb(255, 255, 255, 0.7);
+          box-sizing: border-box;
+        }
+      }
+      .review_body {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        textarea {
+          width: 100%;
+          height: 7em;
+          border: none;
+          border-radius: 0.2em;
+          margin: 1em 0;
+          box-sizing: border-box;
+          background: rgb(255, 255, 255, 0.7);
+          font-size: 1em;
+        }
+        span {
+          align-self: flex-end;
+          font-size: 12px;
+        }
+        button {
+          width: 25em;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+@include tablet{
+  .reviews_container{
+    padding-bottom: 0;
+  }
+}
+
+@include mobile{
+  .reviews_container{
+    padding-bottom: 0;
+  }
+}

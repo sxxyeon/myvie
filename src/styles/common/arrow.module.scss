@@ -1,0 +1,17 @@
+.arrow {
+  position: absolute;
+  bottom: 0;
+  width: 60px;
+  height: 60px;
+  top: calc(50% + 25px);
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index:1;
+  opacity:.6;
+}
+.prev {
+  left: 1em;
+}
+.next {
+  right: 1em;
+}
