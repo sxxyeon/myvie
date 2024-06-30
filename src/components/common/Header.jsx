@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import styles from '../../styles/common/header.module.scss'
 import { useRouter } from 'next/navigation'
-import { LoginContext } from './../../context/LoginContext'
+// import { LoginContext } from './../../context/LoginContext'
 import { Icon } from '@iconify/react'
 import Image from 'next/image'
 import Logo from '/public/img/logo2.png'
@@ -14,17 +14,17 @@ const Header = () => {
   const [show, setShow] = useState(false)
   const [search, setSearch] = useState('')
 
-  const { users, fetchData } = useContext(LoginContext)
-  const [foundUser, setFoundUser] = useState(null)
+  // const { users, fetchData } = useContext(LoginContext)
+  const [foundUser, setFoundUser] = useState(false) //
   
   useEffect(() => {
-    const user = users.find((item) => item.isLogin === true)
-    setFoundUser(user)
-    fetchData()
+    //const user = users.find((item) => item.isLogin === true)
+    //setFoundUser(user)
+    //fetchData()
     if(path !== '/search'){
       setSearch('')
     }
-  }, [users])
+  }, [])
 
   useEffect(() => {
     window.addEventListener('scroll', () => {

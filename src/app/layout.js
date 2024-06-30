@@ -1,7 +1,7 @@
 import Header from '../components/common/Header'
 import Footer from '../components/common/Footer'
 import '../styles/globals.scss'
-import {LoginProvider} from './../context/LoginContext'
+//import {LoginProvider} from './../context/LoginContext'
 import { Suspense } from 'react';
 export const metadata = {
   title: 'Create Next App',
@@ -13,13 +13,13 @@ export default function RootLayout({ children }) {
     <html>
       <body>
         <div id="wrap">
-          <LoginProvider>
+          {/* <LoginProvider> */}
             <Header />
             <Suspense fallback={<div>Loading...</div>}>
             <div className="cont_wrap">{children}</div>
             </Suspense>
             <Footer />
-          </LoginProvider>
+          {/* </LoginProvider> */}
         </div>
       </body>
     </html>
