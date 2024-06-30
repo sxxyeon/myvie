@@ -1,5 +1,5 @@
 @import '../variables.scss';
-
+@import '../mixin.scss';
 .footer{
     display: flex;
     flex-direction: column;
@@ -25,5 +25,11 @@
     }
     .footer_bottom{
         text-align: center;
+    }
+}
+
+@include mobile{
+    .footer{
+        padding: 3rem 1.3rem;
     }
 }

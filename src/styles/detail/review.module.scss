@@ -123,6 +123,7 @@
 @include mobile {
   .reviews_container {
     padding-bottom: 0;
+    margin: 3rem auto;
     .review {
       // 공통 스타일
       .review_top {
