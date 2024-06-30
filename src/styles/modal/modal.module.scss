@@ -10,6 +10,7 @@
     transform: translate(-50%, -50%);
     background: rgb(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     width: 60%;
     max-width: 800px;
     height: 800px;
@@ -29,7 +30,7 @@
       padding: 2em;
       .modal_title {
         font-size: 1.6em;
-        font-weight: 600;
+        font-weight: bold;
       }
       ul {
         display: flex;

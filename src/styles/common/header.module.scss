@@ -9,6 +9,7 @@
   padding: 0 20px;
   background: rgb(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgb(255, 255, 255, 0.2);
   box-sizing: border-box;
   z-index: 10;
@@ -26,7 +27,7 @@
   h1 {
     color: $primary;
     font-size: 40px;
-    font-weight: 800;
+    font-weight: bold;
   }
   .right_header {
     flex: 1;
@@ -47,7 +48,7 @@
       height: 3rem;
       line-height: 3rem;
       text-align: center;
-      font-weight: 800;
+      font-weight: bold;
       border-radius: 7px;
     }
     .login_state{
@@ -59,5 +60,6 @@
 }
 .show {
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   background: transparent;
 }
