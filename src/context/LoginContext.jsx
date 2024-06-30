@@ -11,9 +11,12 @@ export const LoginProvider = ({ children }) => {
   }, [])
 
   const fetchData = async () => {
-    const resp = await fetch(`${process.env.NEXT_PUBLIC_JSON}/users`, {
+    const resp = await fetch(`${process.env.NEXT_PUBLIC_JSON}/users`,  { 
+      method: 'GET',
       cache: 'no-store',
-    })
+      credentials: 'include',
+      mode: 'cors',
+    });
     const result = await resp.json()
     setUsers(result)
     //setIsDataChanged(true)

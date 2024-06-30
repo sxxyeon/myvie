@@ -85,6 +85,8 @@ const Join1 = () => {
         userEmail,
         isLogin: false,
       }),
+      credentials: "include",
+      mode: 'cors',
     }
     const resp = await fetch(`${process.env.NEXT_PUBLIC_JSON}/users`, options)
     alert('가입이 완료되었습니다.')

@@ -38,12 +38,14 @@ const ReviewEditor = ({ id }) => {
 
     try {
       const options = {
-        cache:'no-store',
+        cache: 'no-store',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ movieId, timeNow, nickName, score, reviewTxt }),
+        credentials: 'include',
+        mode: 'cors',
       }
 
       const response = await fetch(
@@ -55,9 +57,8 @@ const ReviewEditor = ({ id }) => {
       }
       // 리뷰 등록 성공시
       //router.refresh();
-      location.reload();
+      location.reload()
       //alert('리뷰가 등록되었습니다.')
-     
 
       // 폼 초기화
       setReviewTxt('')
@@ -91,7 +92,9 @@ const ReviewEditor = ({ id }) => {
               onChange={onChangeReview}
               value={reviewTxt}
             ></textarea>
-            <span>{reviewTxt.length}/{charLimit} 자</span>
+            <span>
+              {reviewTxt.length}/{charLimit} 자
+            </span>
             <button className="btn btn01" type="submit">
               등록하기
             </button>

@@ -28,11 +28,13 @@ const Profile = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(thisUser),
+      cache: 'no-store',
+      credentials: 'include',
+      mode: 'cors',
     }
     const resp = await fetch(
       `${process.env.NEXT_PUBLIC_JSON}/users/${foundUser.id}`,
-      options,
-      { cache: 'no-store' }
+      options
     )
     if (resp.ok) {
       const result = await resp.json()

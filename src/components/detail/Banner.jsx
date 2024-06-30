@@ -16,7 +16,12 @@ const Banner = ({ id }) => {
   const fetchData = async (id) => {
     const resp = await fetchFromApi(`/movie/${id}`)
     setMovie(resp)
-    const resp2 = await fetch(`${process.env.NEXT_PUBLIC_JSON}/liked`)
+    const resp2 = await fetch(`${process.env.NEXT_PUBLIC_JSON}/liked`, {
+      method: 'GET',
+      cache: 'no-store',
+      credentials: 'include',
+      mode: 'cors',
+    })
     const json = await resp2.json()
     setLikedList(json)
     const likedInit = json.some((item) => item.id === id)
@@ -29,6 +34,8 @@ const Banner = ({ id }) => {
       // 이미 찜한 상태일 때는 찜 목록에서 삭제
       const options = {
         method: 'DELETE',
+        credentials: 'include',
+        mode: 'cors',
       }
       const resp = await fetch(
         `${process.env.NEXT_PUBLIC_JSON}/liked/${parseInt(id)}`,
@@ -54,6 +61,8 @@ const Banner = ({ id }) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ id: String(id) }),
+        credentials: 'include',
+        mode: 'cors',
       }
       const resp = await fetch(`${process.env.NEXT_PUBLIC_JSON}/liked`, options)
       if (!resp.ok) {

@@ -42,6 +42,8 @@ const Login = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(thisUser),
+        credentials: "include",
+        mode: 'cors',
       }
       const resp = await fetch(`${process.env.NEXT_PUBLIC_JSON}/users/${foundUser.id}`, options)
       if (resp.ok) {

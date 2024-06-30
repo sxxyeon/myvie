@@ -7,11 +7,16 @@ import styles from '../../styles/my/liked.module.scss'
 
 const Liked = ({ movies }) => {
   const router = useRouter()
-  const deleteMovie = async(movie) => {
+  const deleteMovie = async (movie) => {
     const options = {
-      method : 'DELETE'
+      method: 'DELETE',
+      credentials: 'include',
+      mode: 'cors',
     }
-    const resp = await fetch(`${process.env.NEXT_PUBLIC_JSON}/liked/${movie.id}`, options)
+    const resp = await fetch(
+      `${process.env.NEXT_PUBLIC_JSON}/liked/${movie.id}`,
+      options
+    )
     location.reload()
   }
   const imgUrl = `https://image.tmdb.org/t/p/`

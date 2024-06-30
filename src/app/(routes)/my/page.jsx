@@ -6,7 +6,12 @@ import Liked from './../../../components/my/Liked'
 const MyPage = async () => {
   
   // liked 목록 가져오기
-  const resp = await fetch(`${process.env.NEXT_PUBLIC_JSON}/liked`, { cache : 'no-store'})
+  const resp = await fetch(`${process.env.NEXT_PUBLIC_JSON}/liked`, { 
+    method: 'GET',
+    cache: 'no-store',
+    credentials: 'include',
+    mode: 'cors',
+  });
   const likedList = await resp.json()
 
   // 각 liked 항목에 대해 movie 정보 가져오기
