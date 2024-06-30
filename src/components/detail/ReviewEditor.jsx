@@ -83,7 +83,6 @@ const ReviewEditor = ({ id }) => {
             <div className={styles.right_sec}>
               <span>name :</span>
               <input type="text" value={nickName} onChange={onChangeName} />
-              <div>{new Date().toLocaleDateString()}</div>
             </div>
           </div>
           <div className={styles.review_body}>

@@ -28,6 +28,9 @@
     color: $primary;
     font-size: 40px;
     font-weight: bold;
+    img{
+      width:100%;
+    }
   }
   .right_header {
     flex: 1;
