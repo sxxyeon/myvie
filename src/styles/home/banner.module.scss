@@ -13,6 +13,7 @@
       font-size: 3rem;
       font-weight: bold;
       margin-bottom: 30px;
+      line-height:3rem;
     }
 
     .overview {
@@ -40,8 +41,14 @@
 }
 
 @include mobile{
-  .banner{
+  .banner {
+    height: 400px !important;
     div.title_wrap {
+      h2 {
+        font-size: 2.3rem;
+        line-height:2.3rem;
+      }
+  
       .overview {
         width:100%;
       }

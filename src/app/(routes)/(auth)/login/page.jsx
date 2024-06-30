@@ -64,7 +64,6 @@ const Login = () => {
   
   return (
     <div className={styles.login_container}>
-      <h2>Logo</h2>
       <div className={styles.login_wrap}>
         <form onSubmit={handleLogin}>
           <input

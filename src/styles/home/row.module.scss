@@ -2,7 +2,8 @@
 
 .row {
   position: relative;
-  margin: 7em 0;
+  margin: 6em 0;
+  padding:1rem 0;
   overflow: hidden;
   h2 {
     width: 1000px;
@@ -100,15 +101,20 @@
       font-size: 1.3rem;
     }
     .row_wrap {
-  
       .row_item {
-        width: 160px;
+        width: 200px;
   
         img {
           width: 100%;
         }
       }
     }
+  }
+  .row.big {
+    .row_item{
+      width: 160px;
+    }
+    
   }
 }
 

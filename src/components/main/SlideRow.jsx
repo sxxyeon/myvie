@@ -13,6 +13,8 @@ import 'swiper/css/scrollbar'
 
 const SlideRow = ({ title, id, fetchUrl}) => {
     const [movies, setMovies] = useState([])
+
+
     SwiperCore.use([Navigation, Autoplay])
     const imgUrl = `https://image.tmdb.org/t/p/`
 
@@ -29,7 +31,6 @@ const SlideRow = ({ title, id, fetchUrl}) => {
       <h2>{title}</h2>
       <Swiper
         className={styles.row_wrap}
-        modules={[Navigation]}
         breakpoints={{
           1378: {
             slidesPerView: 6, // 한번에 보이는 슬라이드 갯수
@@ -39,7 +40,7 @@ const SlideRow = ({ title, id, fetchUrl}) => {
             slidesPerView: 5,
             slidesPerGroup: 5,
           },
-          626: {
+          600: {
             slidesPerView: 4,
             slidesPerGroup: 4,
           },
@@ -48,9 +49,8 @@ const SlideRow = ({ title, id, fetchUrl}) => {
             slidesPerGroup: 3,
           },
         }}
+        spaceBetween={20}
         //navigation
-        spaceBetween={30}
-        navigation
         loop={true}
         autoplay={{
           delay: 2500,

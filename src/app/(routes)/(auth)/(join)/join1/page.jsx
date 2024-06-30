@@ -1,5 +1,5 @@
 'use client'
-import React, { useState,useCallback } from 'react'
+import React, { useState, useCallback } from 'react'
 import Link from 'next/link'
 import styles from '../../../../../styles/auth/join.module.scss'
 import { useRouter } from 'next/navigation'
@@ -64,32 +64,34 @@ const Join1 = () => {
       }
       setIsInput((prev) => ({ ...prev, [`${name}Is`]: isValid }))
       console.log(isInput)
-      setInputMsg((prev) => ({ ...prev, [`${name}Msg`]: isValid ? '' : rule.message }))
+      setInputMsg((prev) => ({
+        ...prev,
+        [`${name}Msg`]: isValid ? '' : rule.message,
+      }))
       console.log(inputMsg)
     }
   }
 
-
   const handleJoin = async (e) => {
     e.preventDefault()
-    const { userId, userPw, userEmail } = input
+    //const { userId, userPw, userEmail } = input
 
-    const options = {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        userId,
-        userPw,
-        userEmail,
-        isLogin: false,
-      }),
-      credentials: "include",
-      mode: 'cors',
-    }
-    const resp = await fetch(`${process.env.NEXT_PUBLIC_JSON}/users`, options)
-    alert('가입이 완료되었습니다.')
+    // const options = {
+    //   method: 'post',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({
+    //     userId,
+    //     userPw,
+    //     userEmail,
+    //     isLogin: false,
+    //   }),
+    //   credentials: 'include',
+    //   mode: 'cors',
+    // }
+    // const resp = await fetch(`${process.env.NEXT_PUBLIC_JSON}/users`, options)
+    // alert('가입이 완료되었습니다.')
     router.push('/login')
   }
 
@@ -114,7 +116,7 @@ const Join1 = () => {
       [name]: checked,
     }).every((value) => value === true)
     setAllAgreed(allChecked)
-  },[])
+  }, [])
 
   const handleAllAgreementChange = useCallback((e) => {
     const { checked } = e.target
@@ -128,12 +130,12 @@ const Join1 = () => {
       )
     )
     setAllAgreed(checked)
-  },[])
+  }, [])
 
   return (
     <div className={styles.join_container}>
       <h2>
-        Logo <span>회원가입</span>
+        <span>회원가입</span>
       </h2>
       <div className={styles.join_wrap}>
         <form onSubmit={handleJoin}>

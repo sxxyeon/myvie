@@ -1,31 +1,32 @@
-@import '../variables.scss'; 
+@import '../variables.scss';
+@import '../mixin.scss';
 .login_container {
   max-width: 450px;
   width: 100%;
   margin: 10em auto;
-  padding:0 20px;
+  padding: 50px 20px 0;
   display: flex;
   flex-direction: column;
   gap: 3em;
-  box-sizing:border-box;
+  box-sizing: border-box;
   h2 {
     font-size: 3em;
     font-weight: bold;
     text-align: center;
   }
   form {
-    
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap:1em;
+    gap: 1em;
     input {
-        width:100%;
-        padding: 1.7em;
-        font-size: 1em;
-        box-sizing: border-box;
-        border:none;
-        border-radius:.2em;
+      width: 100%;
+      padding: 1.7em;
+      font-size: 1em;
+      box-sizing: border-box;
+      border: none;
+      border-radius: 0.2em;
+      background: rgb(255, 255, 255, 0.3);
     }
     button {
       width: 100%;
@@ -37,7 +38,7 @@
   .auth_wrap {
     display: flex;
     flex-direction: column;
-    gap:2em;
+    gap: 2em;
     text-align: center;
     ul {
       display: flex;
@@ -55,6 +56,27 @@
         margin-left: 10px;
         color: $white;
       }
+    }
+  }
+}
+
+@include mobile {
+  .login_container {
+    h2 {
+    }
+    form {
+      input {
+        width: 90%;
+        padding: 1rem;
+      }
+      button {
+        width: 90%;
+        padding: 1rem;
+        font-size: 15px;
+      }
+    }
+    .auth_wrap {
+      font-size: 13px;
     }
   }
 }
