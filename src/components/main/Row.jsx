@@ -31,7 +31,7 @@ const Row = ({ title, id, fetchUrl, isBig }) => {
   return (
     <>
       <div className={`${styles.row} ${isBig ? styles.big : ''}`}>
-        <h2>{title}</h2>
+        <h2 className='title'>{title}</h2>
         <div id={id} className={styles.row_wrap}>
           {movies.map((movie) => {
             return (

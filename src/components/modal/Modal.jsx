@@ -1,11 +1,14 @@
 'use client'
 import React, { useEffect, useState } from 'react'
+import { useMediaQuery } from 'react-responsive'
 import { Icon } from '@iconify/react'
 import styles from '../../styles/modal/modal.module.scss'
 import Link from 'next/link'
 const Modal = ({ movie, setIsModalOpen }) => {
   const [liked, setLiked] = useState(false)
   const [likedList, setLikedList] = useState([])
+
+  const isMobile = useMediaQuery({ maxWidth: 700 })
 
   useEffect(() => {
     document.body.style.overflowY = 'hidden'
@@ -119,7 +122,7 @@ const Modal = ({ movie, setIsModalOpen }) => {
                     width="30"
                   />
                 )}
-                찜하기
+                {isMobile ? '' : '찜하기'}
               </button>
 
               <Link href={`/movie/${movie.id}`}>
