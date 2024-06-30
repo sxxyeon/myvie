@@ -51,7 +51,7 @@ const Profile = () => {
         <div className={styles.left_sec}>
           <div className={styles.thum}><Image src={profile} alt="profile" height="130"/></div>
           <p>
-            <span>{foundUser?.userId || ''}</span> 님
+            <span>닉네임</span> 님
           </p>
         </div>
         <div className={styles.right_sec}>
