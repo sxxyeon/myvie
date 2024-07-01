@@ -16,26 +16,31 @@ export default function Home() {
       <Row
         title={'Top rated'}
         id={'r2'}
+        isBig
         fetchUrl={requests.fetchTopRated}
       />
       <Row
         title={'오늘의 Trend'}
         id={'r3'}
+        isBig
         fetchUrl={requests.fetchTrending}
       />
       <Row
         title={'인기 영화'}
         id={'r4'}
+        isBig
         fetchUrl={requests.fetchPopular}
       />
       <Row
         title={'개봉예정 영화'}
         id={'r5'}
+        isBig
         fetchUrl={requests.fetchUpcoming}
       />
       <Row
         title={'호러 영화'}
         id={'r6'}
+        isBig
         fetchUrl={requests.fetchHorrorMovies}
       />
     </main>

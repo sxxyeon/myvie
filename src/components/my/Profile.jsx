@@ -3,46 +3,45 @@ import React from 'react'
 import styles from '../../styles/my/liked.module.scss'
 import { useContext, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-//import { LoginContext } from './../../context/LoginContext'
+import { LoginContext } from './../../context/LoginContext'
 import Image from 'next/image'
 import profile from '/public/img/profile.png'
 
 
 const Profile = () => {
   const router = useRouter()
-  //const {  users, fetchData } = useContext(LoginContext)
-  //const foundUser = users.find((item) => item.isLogin === true)
+  const {  users } = useContext(LoginContext)
+  const foundUser = users.find((item) => item.isLogin === true)
 
+  console.log(foundUser)
   useEffect(() => {
     //fetchData()
   }, [])
 
   const handleLogOut = async () => {
-    // const thisUser = {
-    //   ...foundUser,
-    //   isLogin: false,
-    // }
-    // const options = {
-    //   method: 'PUT',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(thisUser),
-    //   cache: 'no-store',
-    //   credentials: 'include',
-    //   mode: 'cors',
-    // }
-    // const resp = await fetch(
-    //   `${process.env.NEXT_PUBLIC_JSON}/users/${foundUser.id}`,
-    //   options
-    // )
-    // if (resp.ok) {
-    //   const result = await resp.json()
-    //   console.log(result)
-    //   fetchData()
-    // } else {
-    //   console.error('서버 오류:', resp.status)
-    // }
+    const thisUser = {
+      ...foundUser,
+      isLogin: false,
+    }
+    const options = {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(thisUser),
+      cache: 'no-store',
+      credentials: 'include',
+      mode: 'cors',
+    }
+    const resp = await fetch(
+      `${process.env.NEXT_PUBLIC_JSON}/users/${foundUser.id}`,
+      options
+    )
+    if (resp.ok) {
+      const result = await resp.json()
+    } else {
+      console.error('서버 오류:', resp.status)
+    }
     router.push('/login')
   }
   return (
@@ -51,7 +50,7 @@ const Profile = () => {
         <div className={styles.left_sec}>
           <div className={styles.thum}><Image src={profile} alt="profile" height="130"/></div>
           <p>
-            <span>닉네임</span> 님
+            <span>{foundUser?.userId}</span> 님
           </p>
         </div>
         <div className={styles.right_sec}>

@@ -8,8 +8,6 @@
   height: 100px;
   padding: 0 20px;
   background: transparent;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgb(255, 255, 255, 0.2);
   box-sizing: border-box;
   z-index: 10;
@@ -64,5 +62,5 @@
 .show {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  background: rgb(0,0,0,.5);
+  //background: rgb(0,0,0,.5);
 }

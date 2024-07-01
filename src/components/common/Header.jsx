@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import styles from '../../styles/common/header.module.scss'
 import { useRouter } from 'next/navigation'
-// import { LoginContext } from './../../context/LoginContext'
+import { LoginContext } from './../../context/LoginContext'
 import { Icon } from '@iconify/react'
 import Image from 'next/image'
 import Logo from '/public/img/logo2.png'
@@ -14,14 +14,13 @@ const Header = () => {
   const [show, setShow] = useState(false)
   const [search, setSearch] = useState('')
 
-  // const { users, fetchData } = useContext(LoginContext)
-  const [foundUser, setFoundUser] = useState(false) //
-  
+  const {  users } = useContext(LoginContext)
+  const foundUser = users.find((item) => item.isLogin === true)
+
+  console.log(foundUser)
   useEffect(() => {
-    //const user = users.find((item) => item.isLogin === true)
-    //setFoundUser(user)
-    //fetchData()
-    if(path !== '/search'){
+    
+    if (path !== '/search') {
       setSearch('')
     }
   }, [])
@@ -43,7 +42,6 @@ const Header = () => {
     router.push(`/search?q=${e.target.value}`)
   }
 
-  
   return (
     <header
       className={`${styles.header} ${show ? styles.show : ''} ${
@@ -53,24 +51,27 @@ const Header = () => {
       <div className={styles.header_wrap}>
         <h1>
           <Link href="/">
-            <Image src={Logo} alt="logo" height="35"/>
+            <Image src={Logo} alt="logo" height="35" />
           </Link>
         </h1>
-        {path !== '/login' && 
-        <div className={styles.right_header}>
-          <input type="text" onChange={onSearch} value={search} />
-          {foundUser ? (
-            <>
-              <Link href="/my">
-              <div className={styles.profile_state}><Image src={Profile} alt="profile" height="50"/></div>
+        {path !== '/login' && (
+          <div className={styles.right_header}>
+            <input type="text" onChange={onSearch} value={search} />
+            {foundUser ? (
+              <>
+                <Link href="/my">
+                  <div className={styles.profile_state}>
+                    <Image src={Profile} alt="profile" height="50" />
+                  </div>
+                </Link>
+              </>
+            ) : (
+              <Link href="/login">
+                <div className={styles.login_state}>LogIn</div>
               </Link>
-            </>
-          ) : (
-            <Link href="/login">
-              <div className={styles.login_state}>LogIn</div>
-            </Link>
-          )}
-        </div>}
+            )}
+          </div>
+        )}
       </div>
     </header>
   )

@@ -3,7 +3,7 @@
 .row {
   position: relative;
   margin: 6em 0;
-  padding:1rem 0;
+  padding: 1rem 0;
   overflow: hidden;
   h2 {
     width: 1000px;
@@ -30,7 +30,7 @@
     .row_item {
       width: 300px;
       flex-shrink: 0;
-      cursor:pointer;
+      cursor: pointer;
 
       img {
         width: 100%;
@@ -71,39 +71,30 @@
   }
 }
 .row.big {
-  .row_item{
+  .row_item {
     width: 210px;
     img {
       width: 100%;
     }
   }
-  
 }
 .row.slide {
-    img {
-      width: 100%;
-    }
-}
-
-
-@include tablet{
-  .row{
-    padding: 0 20px;
-    margin:4em 0;
+  img {
+    width: 100%;
   }
 }
 
-@include mobile{
-  .row{
+@include tablet {
+  .row {
     padding: 20px 20px;
-    margin:3rem 0;
-    h2{
+    margin: 3rem 0;
+    h2 {
       font-size: 1.3rem !important;
     }
     .row_wrap {
       .row_item {
         width: 200px;
-  
+
         img {
           width: 100%;
         }
@@ -111,10 +102,32 @@
     }
   }
   .row.big {
-    .row_item{
+    .row_item {
       width: 160px;
     }
-    
   }
 }
 
+@include mobile {
+  .row {
+    padding: 20px 20px;
+    margin: 3rem 0;
+    h2 {
+      font-size: 1.3rem !important;
+    }
+    .row_wrap {
+      .row_item {
+        width: 200px;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .row.big {
+    .row_item {
+      width: 160px;
+    }
+  }
+}
