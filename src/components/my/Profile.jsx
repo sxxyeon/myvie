@@ -41,8 +41,8 @@ const Profile = () => {
     } else {
       console.error('서버 오류:', resp.status)
     }
-    location.reload();
     router.push('/login')
+    location.reload();
   }
   return (
     <div className={styles.profile_container}>
