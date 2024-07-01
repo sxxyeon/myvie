@@ -5,9 +5,9 @@ import { Icon } from '@iconify/react'
 import styles from '../../styles/modal/modal.module.scss'
 import Link from 'next/link'
 const Modal = ({ movie, setIsModalOpen }) => {
+
   const [liked, setLiked] = useState(false)
   const [likedList, setLikedList] = useState([])
-
   const isMobile = useMediaQuery({ maxWidth: 700 })
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const Modal = ({ movie, setIsModalOpen }) => {
     return () => {
       document.body.style.overflowY = 'scroll'
     }
-  }, [])
+  }, [movie.id])
 
   const fetchData = async (id) => {
     const resp = await fetch(`${process.env.NEXT_PUBLIC_JSON}/liked`, {
@@ -29,10 +29,10 @@ const Modal = ({ movie, setIsModalOpen }) => {
     })
     const json = await resp.json()
     setLikedList(json)
-    const likedInit = json.some((item) => item.id === id)
+    const likedInit = json.some((item) => String(item.id) === String(id))
     setLiked(likedInit)
-  }
 
+  }
   const truncate = (overview) => {
     const truncated =
       overview.length > 100 ? overview.slice(0, 99) + '...' : overview
@@ -100,7 +100,9 @@ const Modal = ({ movie, setIsModalOpen }) => {
             <div className={styles.modal_content}>
               <h2 className={styles.modal_title}>
                 {movie.title ? movie.title : name}
+                {movie.id}
               </h2>
+              
               <ul>
                 <li>{movie.adult ? '19' : '15'}</li>
                 <li>{movie.release_date?.slice(0, 4)}</li>

@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 import { LoginContext } from './../../context/LoginContext'
 import FeatherIcon from 'feather-icons-react'
 import Image from 'next/image'
-import Logo from '/public/img/logo2.png'
+import Logo from '/public/img/logo.png'
 import Profile from '/public/img/profile.png'
 const Header = () => {
   const router = useRouter()
@@ -49,7 +49,7 @@ const Header = () => {
       <div className={styles.header_wrap}>
         <h1>
           <Link href="/">
-            <Image src={Logo} alt="logo" height="30" />
+            <Image src={Logo} alt="logo" height="36" />
           </Link>
         </h1>
         {path !== '/login' && (

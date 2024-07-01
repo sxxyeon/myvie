@@ -14,10 +14,14 @@
     width: 60%;
     max-width: auto;
     height: auto;
+    max-width: 800px;
+    max-height: 800px;
     z-index: 10;
     border-radius: 1.7em;
     overflow: hidden;
     box-shadow: 0 3px 40px rgb(0, 0, 0, 70%);
+    border:1px solid #333;
+    box-sizing: border-box;
     img {
       width: 100%;
     }
@@ -54,7 +58,7 @@
       display: flex;
       flex-direction: row;
       gap: 20px;
-      padding: 2em;
+      padding: 0 2em 2em;
       button {
         cursor: pointer;
       }
@@ -103,13 +107,30 @@
   cursor: pointer;
 }
 
-@include mobile {
+
+@include tablet {
   .wrapper_modal {
     .modal {
-      width: 85%;
+      width: 60%;
+      max-height: max-content;
       .btn_box{
         button{
         }
+      }
+    }
+  }
+}
+
+@include mobile {
+  .wrapper_modal {
+    .modal {
+      width: 90%;
+      max-height: max-content;
+      .modal_content{
+        padding: 1.3rem;
+      }
+      .btn_box{
+        padding: 0 1.3rem 1.3rem;
       }
     }
   }

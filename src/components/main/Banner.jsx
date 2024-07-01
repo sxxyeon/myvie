@@ -3,6 +3,8 @@ import fetchFromApi from './../../../lib/api'
 import requests from './../../../lib/requests'
 import styles from '../../styles/home/banner.module.scss'
 import Link from 'next/link';
+
+
 const Banner = async () => {
   const movies = await fetchFromApi(requests.fetchNowPlaying)
   const randomMovie = movies.results[Math.floor(Math.random() * movies.results.length)]
@@ -11,7 +13,7 @@ const Banner = async () => {
 
   const truncate = (overview) => {
     const truncated =
-      overview.length > 100 ? overview.slice(0, 99) + '...' : overview
+      overview.length > 90 ? overview.slice(0, 89) + '...' : overview
     return truncated
   }
   return (
