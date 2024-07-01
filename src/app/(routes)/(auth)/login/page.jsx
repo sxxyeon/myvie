@@ -53,7 +53,6 @@ const Login = () => {
         console.error('서버 오류:', resp.status) // 서버에서 오류가 발생한 경우 처리
       }
       router.push('/')
-      location.reload();
 
     } else {
     alert('일치하는 사용자를 찾을 수 없습니다.')
