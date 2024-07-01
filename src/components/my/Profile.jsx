@@ -13,9 +13,8 @@ const Profile = () => {
   const {  users } = useContext(LoginContext)
   const foundUser = users.find((item) => item.isLogin === true)
 
-  console.log(foundUser)
   useEffect(() => {
-    //fetchData()
+    //location.reload()
   }, [])
 
   const handleLogOut = async () => {

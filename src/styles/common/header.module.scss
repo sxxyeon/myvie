@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 70px;
   padding: 0 20px;
   background: transparent;
   border-bottom: 1px solid rgb(255, 255, 255, 0.2);
@@ -19,43 +19,59 @@
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
-    height: 100px;
+    height: 70px;
     margin: 0 auto;
   }
   h1 {
     color: $primary;
-    font-size: 40px;
     font-weight: bold;
-    img{
-      width:100%;
+    img {
+      width: 100%;
     }
   }
   .right_header {
     flex: 1;
     display: flex;
     justify-content: flex-end;
-    gap: .5rem;
+    gap: 0.5rem;
     flex-shrink: 0;
-    input {
-      background: $dgrey;
-      color: $white;
+    min-width: 0;
+    div.input {
+      position: relative;
       border-radius: 100px;
-      border: none;
-      box-sizing: border-box;
+      input {
+        max-width: 140px;
+        height: 40px;
+        min-width: 0;
+        background: $dgrey;
+        color: $white;
+        padding: 0 0.5rem;
+        border-radius: 100px;
+        border: none;
+        box-sizing: border-box;
+      }
+      svg {
+        position: absolute;
+        right: .5rem;
+        top: 47%;
+        transform: translateY(-50%);
+      }
     }
+
     .profile_state {
       background: $primary;
-      width: 3rem;
-      height: 3rem;
-      line-height: 3rem;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
       text-align: center;
       font-weight: bold;
       border-radius: 7px;
     }
-    .login_state{
-      width: 3rem;
-      height: 3rem;
-      line-height: 3rem;
+    .login_state {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      color:#555;
     }
   }
 }

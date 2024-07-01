@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import styles from '../../styles/common/header.module.scss'
 import { useRouter } from 'next/navigation'
 import { LoginContext } from './../../context/LoginContext'
-import { Icon } from '@iconify/react'
+import FeatherIcon from 'feather-icons-react'
 import Image from 'next/image'
 import Logo from '/public/img/logo2.png'
 import Profile from '/public/img/profile.png'
@@ -14,12 +14,10 @@ const Header = () => {
   const [show, setShow] = useState(false)
   const [search, setSearch] = useState('')
 
-  const {  users } = useContext(LoginContext)
+  const { users } = useContext(LoginContext)
   const foundUser = users.find((item) => item.isLogin === true)
 
-  console.log(foundUser)
   useEffect(() => {
-    
     if (path !== '/search') {
       setSearch('')
     }
@@ -51,17 +49,20 @@ const Header = () => {
       <div className={styles.header_wrap}>
         <h1>
           <Link href="/">
-            <Image src={Logo} alt="logo" height="35" />
+            <Image src={Logo} alt="logo" height="30" />
           </Link>
         </h1>
         {path !== '/login' && (
           <div className={styles.right_header}>
-            <input type="text" onChange={onSearch} value={search} />
+            <div className={styles.input}>
+              <input type="text" onChange={onSearch} value={search} />
+              <FeatherIcon icon="search" size="30" stroke="#ddd" />
+            </div>
             {foundUser ? (
               <>
                 <Link href="/my">
                   <div className={styles.profile_state}>
-                    <Image src={Profile} alt="profile" height="50" />
+                    <Image src={Profile} alt="profile" height="40" />
                   </div>
                 </Link>
               </>

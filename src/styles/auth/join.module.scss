@@ -3,7 +3,7 @@
 .join_container {
   max-width: 450px;
   width: 100%;
-  margin: 10em auto 3rem;
+  margin: 110px auto 3rem;
   padding: 0 20px;
   display: flex;
   flex-direction: column;
@@ -91,16 +91,13 @@
     .join_wrap {
       form {
         gap: 0.8em;
+        width: 90%;
         margin: 0 auto;
         input[type='text'],
         input[type='password'] {
-          width: 90%;
           padding: 1rem;
-          margin: 0 auto;
         }
         .agree_wrap {
-          width: 90%;
-          margin: 0 auto;
           .panel {
             ul {
               gap: 0.8rem;
@@ -111,8 +108,6 @@
           }
         }
         button {
-          width: 90%;
-          margin: 0 auto;
           padding: 1rem;
           font-size: 15px;
         }

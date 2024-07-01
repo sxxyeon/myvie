@@ -28,7 +28,6 @@ const Liked = ({ movies }) => {
             id={movie.id}
             className={styles.row_item}
             key={movie.id}
-            onClick={() => router.push(`/movie/${movie.id}`)}
           >
             <button
               className={styles.close_btn}
@@ -36,7 +35,7 @@ const Liked = ({ movies }) => {
             >
               <Icon icon="mdi:close" color="#fff" width="24" />
             </button>
-            <img src={`${imgUrl}w500/${movie.poster_path}`} alt="poster" />
+            <img src={`${imgUrl}w500/${movie.poster_path}`} alt="poster" onClick={() => router.push(`/movie/${movie.id}`)}/>
           </div>
         )
       })}

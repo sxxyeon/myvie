@@ -3,7 +3,7 @@
     width: 80%;
     max-width: 1200px;
     display: grid;
-    margin: 10em auto;
+    margin: 130px auto;
     grid-template-columns: repeat(auto-fill, minmax(15%, auto));
     gap:2em;
     box-sizing: border-box;
@@ -17,15 +17,15 @@
     }
 }
 .no_result{
-    margin: 10em auto;
-    padding: 10em;
+    margin: 5em auto;
+    padding: 10em 0;
     text-align: center;
 }
 
 @include mobile{
     .search {
       width: 100%;
-      margin: 10em auto 3em;
+      margin: 130px auto 3em;
       padding: 0 20px;
       grid-template-columns: repeat(auto-fill, minmax(20%, auto));
     }
@@ -34,7 +34,7 @@
   @include tablet{
     .search {
       width: 100%;
-      margin: 10em auto 3em;
+      margin: 130px auto 3em;
       padding: 0 40px;
       grid-template-columns: repeat(auto-fill, minmax(18%, auto));
     }

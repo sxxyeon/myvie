@@ -74,24 +74,24 @@ const Join1 = () => {
 
   const handleJoin = async (e) => {
     e.preventDefault()
-    //const { userId, userPw, userEmail } = input
+    const { userId, userPw, userEmail } = input
 
-    // const options = {
-    //   method: 'post',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     userId,
-    //     userPw,
-    //     userEmail,
-    //     isLogin: false,
-    //   }),
-    //   credentials: 'include',
-    //   mode: 'cors',
-    // }
-    // const resp = await fetch(`${process.env.NEXT_PUBLIC_JSON}/users`, options)
-    // alert('가입이 완료되었습니다.')
+    const options = {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        userId,
+        userPw,
+        userEmail,
+        isLogin: false,
+      }),
+      credentials: 'include',
+      mode: 'cors',
+    }
+    const resp = await fetch(`${process.env.NEXT_PUBLIC_JSON}/users`, options)
+    alert('가입이 완료되었습니다.')
     router.push('/login')
   }
 
