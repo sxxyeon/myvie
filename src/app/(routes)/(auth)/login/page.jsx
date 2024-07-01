@@ -52,6 +52,7 @@ const Login = () => {
       } else {
         console.error('서버 오류:', resp.status) // 서버에서 오류가 발생한 경우 처리
       }
+      location.reload();
       router.push('/')
 
     } else {

@@ -13,6 +13,7 @@
         overflow:hidden;
         img{
             width: 100%;
+            height: 100%;
         }
     }
 }
@@ -27,7 +28,8 @@
       width: 100%;
       margin: 130px auto 3em;
       padding: 0 20px;
-      grid-template-columns: repeat(auto-fill, minmax(20%, auto));
+      grid-template-columns: repeat(auto-fill, minmax(25%, auto));
+      gap:1rem;
     }
   }
   
@@ -37,5 +39,6 @@
       margin: 130px auto 3em;
       padding: 0 40px;
       grid-template-columns: repeat(auto-fill, minmax(18%, auto));
+      gap:1.7rem;
     }
   }

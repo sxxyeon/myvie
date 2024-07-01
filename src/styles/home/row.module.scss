@@ -111,7 +111,7 @@
 @include mobile {
   .row {
     padding: 20px 20px;
-    margin: 3rem 0;
+    margin: 1rem 0;
     h2 {
       font-size: 1.3rem !important;
     }
@@ -127,7 +127,7 @@
   }
   .row.big {
     .row_item {
-      width: 160px;
+      width: 130px;
     }
   }
 }
