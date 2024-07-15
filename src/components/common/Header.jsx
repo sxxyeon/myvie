@@ -1,58 +1,63 @@
-'use client'
-import React, { useState, useEffect, useContext } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import styles from '../../styles/common/header.module.scss'
-import { useRouter } from 'next/navigation'
-import { LoginContext } from './../../context/LoginContext'
-import FeatherIcon from 'feather-icons-react'
-import Image from 'next/image'
-import Logo from '/public/img/logo.png'
-import Profile from '/public/img/profile.png'
+"use client";
+import React, { useState, useEffect, useContext } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import styles from "../../styles/common/header.module.scss";
+import { useRouter } from "next/navigation";
+import { useUser } from "../../context/LoginContext";
+import FeatherIcon from "feather-icons-react";
+import Image from "next/image";
+import Logo from "/public/img/logo.png";
+import Profile from "/public/img/profile.png";
 const Header = () => {
-  const router = useRouter()
-  const [show, setShow] = useState(false)
-  const [search, setSearch] = useState('')
+  const router = useRouter();
+  const [show, setShow] = useState(false);
+  const [search, setSearch] = useState("");
+  const { users, fetchData } = useUser();
 
-  const { users } = useContext(LoginContext)
-  const foundUser = users.find((item) => item.isLogin === true)
+  const foundUser = users.find((item) => item.isLogin === true);
+
+  const path = usePathname();
 
   useEffect(() => {
-    if (path !== '/search') {
-      setSearch('')
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    if (path !== "/search") {
+      setSearch("");
     }
-  }, [])
+  }, [path]);
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    window.addEventListener("scroll", () => {
       if (window.scrollY > 30) {
-        setShow(true)
+        setShow(true);
       } else {
-        setShow(false)
+        setShow(false);
       }
-    })
-  }, [])
-  const path = usePathname()
+    });
+  }, []);
 
   const onSearch = (e) => {
-    const { value, name } = e.target
-    setSearch(e.target.value)
-    router.push(`/search?q=${e.target.value}`)
-  }
+    const { value, name } = e.target;
+    setSearch(e.target.value);
+    router.push(`/search?q=${e.target.value}`);
+  };
 
   return (
     <header
-      className={`${styles.header} ${show ? styles.show : ''} ${
-        path == '/' ? '' : styles.show
+      className={`${styles.header} ${show ? styles.show : ""} ${
+        path == "/" ? "" : styles.show
       }`}
     >
       <div className={styles.header_wrap}>
         <h1>
           <Link href="/">
-            <Image src={Logo} alt="logo" height="36" />
+            <Image src={Logo} alt="logo" height="30" />
           </Link>
         </h1>
-        {path !== '/login' && (
+        {path !== "/login" && (
           <div className={styles.right_header}>
             <div className={styles.input}>
               <input type="text" onChange={onSearch} value={search} />
@@ -75,7 +80,7 @@ const Header = () => {
         )}
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -100,7 +100,6 @@ const Modal = ({ movie, setIsModalOpen }) => {
             <div className={styles.modal_content}>
               <h2 className={styles.modal_title}>
                 {movie.title ? movie.title : name}
-                {movie.id}
               </h2>
               
               <ul>
