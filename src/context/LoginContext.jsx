@@ -11,7 +11,7 @@ export const LoginProvider = ({ children }) => {
   }, [])
 
   const fetchUserData = async () => {
-    const resp = await fetch(`${process.env.NEXT_PUBLIC_JSON}/users`, {
+    const resp = await fetch(`${process.env.NEXT_PUBLIC_JSON}/musers`, {
       method: "GET",
       cache: "no-store",
     });

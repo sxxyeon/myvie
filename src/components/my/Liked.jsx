@@ -10,8 +10,6 @@ const Liked = ({ movies }) => {
   const deleteMovie = async (movie) => {
     const options = {
       method: 'DELETE',
-      credentials: 'include',
-      mode: 'cors',
     }
     const resp = await fetch(
       `${process.env.NEXT_PUBLIC_JSON}/liked/${movie.id}`,

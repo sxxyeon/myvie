@@ -47,7 +47,7 @@ const Login = () => {
         body: JSON.stringify(thisUser),
       };
       const resp = await fetch(
-        `${process.env.NEXT_PUBLIC_JSON}/users/${foundUser.id}`,
+        `${process.env.NEXT_PUBLIC_JSON}/musers/${foundUser.id}`,
         options
       );
       const result = await resp.json();

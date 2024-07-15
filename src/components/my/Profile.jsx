@@ -31,7 +31,7 @@ const Profile = () => {
       cache: "no-store",
     };
     const resp = await fetch(
-      `${process.env.NEXT_PUBLIC_JSON}/users/${foundUser.id}`,
+      `${process.env.NEXT_PUBLIC_JSON}/musers/${foundUser.id}`,
       options
     );
     const result = await resp.json();
