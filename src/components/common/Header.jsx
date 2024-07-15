@@ -13,14 +13,14 @@ const Header = () => {
   const router = useRouter();
   const [show, setShow] = useState(false);
   const [search, setSearch] = useState("");
-  const { users, fetchData } = useUser();
+  const { users, fetchUserData } = useUser();
 
   const foundUser = users.find((item) => item.isLogin === true);
 
   const path = usePathname();
 
   useEffect(() => {
-    fetchData();
+    fetchUserData();
   }, []);
 
   useEffect(() => {

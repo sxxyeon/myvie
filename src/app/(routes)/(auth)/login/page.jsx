@@ -1,67 +1,66 @@
-'use client'
-import React, { useEffect, useState, useContext } from 'react'
-import Link from 'next/link'
-import styles from '../../../../styles/auth/login.module.scss'
-import { LoginContext } from '../../../../context/LoginContext';
-import { useRouter } from 'next/navigation';
-
+"use client";
+import React, { useEffect, useState, useContext } from "react";
+import Link from "next/link";
+import styles from "../../../../styles/auth/login.module.scss";
+import { useRouter } from "next/navigation";
+import { useUser } from "../../../../context/LoginContext";
 const Login = () => {
   const router = useRouter();
-  const { users } = useContext(LoginContext);
+  const { fetchUserData } = useUser();
 
   const [input, setInput] = useState({
-    userId: '',
-    userPw: '',
-  })
-  
+    userId: "",
+    userPw: "",
+  });
+
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+
   const onChangeInput = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
     setInput((prev) => ({
       ...prev,
       [name]: value,
-    }))
-  }
+    }));
+  };
 
-  const handleLogin = async(e) => {
-    e.preventDefault()
+  const handleLogin = async (e) => {
+    e.preventDefault();
     // users 배열이 비어있는지 확인
 
     const foundUser = users.find(
       (item) => item.userId === input.userId && item.userPw === input.userPw
-    )
+    );
     if (foundUser) {
-      console.log('로그인 성공! 사용자 ID:', foundUser.id)
+      console.log("로그인 성공! 사용자 ID:", foundUser.id);
 
       const thisUser = {
         ...foundUser,
-        isLogin:true
-      }
+        isLogin: true,
+      };
       const options = {
-        method: 'PUT',
+        method: "PUT",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(thisUser),
         credentials: "include",
-        mode: 'cors',
-      }
-      const resp = await fetch(`${process.env.NEXT_PUBLIC_JSON}/users/${foundUser.id}`, options)
-      if (resp.ok) {
-        const result = await resp.json()
-        console.log(result) // 성공적으로 응답 받은 경우 처리
-      } else {
-        console.error('서버 오류:', resp.status) // 서버에서 오류가 발생한 경우 처리
-      }
-      router.push('/')
-
+        mode: "cors",
+      };
+      const resp = await fetch(
+        `${process.env.NEXT_PUBLIC_JSON}/users/${foundUser.id}`,
+        options
+      );
+      const result = await resp.json();
+      await fetchUserData();
+      router.push("/");
     } else {
-    alert('일치하는 사용자를 찾을 수 없습니다.')
+      alert("일치하는 사용자를 찾을 수 없습니다.");
       // 사용자 인증 실패 처리
     }
+  };
 
-    
-  }
-  
   return (
     <div className={styles.login_container}>
       <div className={styles.login_wrap}>
@@ -91,14 +90,14 @@ const Login = () => {
           <li>비밀번호 찾기</li>
         </ul>
         <p>
-          아직 계정이 없으신가요?{' '}
+          아직 계정이 없으신가요?{" "}
           <span>
             <Link href="/join1">회원가입하러 가기</Link>
           </span>
         </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
