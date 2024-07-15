@@ -7,10 +7,10 @@ export const LoginProvider = ({ children }) => {
   const [users, setUsers] = useState([])
 
   useEffect(() => {
-    fetchData()
+    fetchUserData()
   }, [])
 
-  const fetchData = async () => {
+  const fetchUserData = async () => {
     const resp = await fetch(`${process.env.NEXT_PUBLIC_JSON}/users`, {
       method: "GET",
       cache: "no-store",
