@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useUser } from "../../../../context/LoginContext";
 const Login = () => {
   const router = useRouter();
-  const { fetchUserData } = useUser();
+  const { users, fetchUserData } = useUser();
 
   const [input, setInput] = useState({
     userId: "",
