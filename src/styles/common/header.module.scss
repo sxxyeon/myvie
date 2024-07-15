@@ -45,6 +45,7 @@
     div.input {
       position: relative;
       border-radius: 100px;
+      
       input {
         max-width: 140px;
         height: 40px;
@@ -55,6 +56,7 @@
         border-radius: 100px;
         border: none;
         box-sizing: border-box;
+        font-size: 1rem;
       }
       svg {
         position: absolute;
