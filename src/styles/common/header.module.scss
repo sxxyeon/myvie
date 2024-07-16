@@ -48,7 +48,7 @@
       
       input {
         max-width: 140px;
-        height: 40px;
+        height: 35px;
         min-width: 0;
         background: $dgrey;
         color: $white;
@@ -68,17 +68,17 @@
 
     .profile_state {
       background: $primary;
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
+      width:35px;
+      height: 35px;
+      line-height: 35px;
       text-align: center;
       font-weight: bold;
       border-radius: 7px;
     }
     .login_state {
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
+      width: 35px;
+      height: 35px;
+      line-height: 35px;
       color:#fff;
     }
   }

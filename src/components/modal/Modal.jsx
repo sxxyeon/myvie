@@ -91,7 +91,7 @@ const Modal = ({ movie, setIsModalOpen }) => {
               className={styles.close_btn}
               onClick={() => setIsModalOpen(false)}
             >
-              <Icon icon="mdi:close" color="#fff" width="50" />
+              <Icon icon="mdi:close" color="#fff" width="30" />
             </button>
             <img
               src={`${imgUrl}/original/${movie.backdrop_path}`}

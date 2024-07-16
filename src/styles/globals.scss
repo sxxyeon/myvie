@@ -1,7 +1,7 @@
-@import './variables.scss';
-@import './mixin.scss';
-@import './font.scss';
-@import './reset.css';
+@import "./variables.scss";
+@import "./mixin.scss";
+@import "./font.scss";
+@import "./reset.css";
 //컴포넌트
 * {
   letter-spacing: -0.5px;
@@ -21,7 +21,7 @@ html {
     .cont_wrap {
       flex: 1;
       height: 100%;
-      //padding:1rem;
+      padding-bottom: 50px;
     }
   }
   .btn {
@@ -30,20 +30,19 @@ html {
     border-radius: 0.2em;
     font-size: 1em;
     cursor: pointer;
-    box-sizing:border-box;
+    box-sizing: border-box;
   }
   .btn.btn01 {
     background: $primary;
     color: $white;
   }
   .btn.btn02 {
-    
   }
   .btn.btn03 {
     font-size: auto;
     padding: 0;
-    color:$primary;
-    border:none;
+    color: $primary;
+    border: none;
     background: transparent;
   }
   .title {
@@ -56,47 +55,46 @@ html {
 
 @include mobile {
   body,
-html {
-  background: #000;
-  color: #fff;
-  font-size: 16px;
-  min-height: 100%;
-  height: max-content;
-  #wrap {
-    display: flex;
-    flex-direction: column;
+  html {
+    background: #000;
+    color: #fff;
+    font-size: 16px;
     min-height: 100%;
     height: max-content;
-    .cont_wrap {
-      flex: 1;
-      height: 100%;
-      //padding:1rem;
+    #wrap {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      height: max-content;
+      .cont_wrap {
+        flex: 1;
+        height: 100%;
+        //padding:1rem;
+      }
+    }
+    .btn {
+      border: none;
+      padding: 1em;
+      border-radius: 0.2em;
+      font-size: 1em;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+    .btn.btn01 {
+      background: $primary;
+      color: $white;
+    }
+    .btn.btn02 {
+    }
+    .btn.btn03 {
+      font-size: auto;
+      padding: 0;
+      color: $primary;
+      border: none;
+      background: transparent;
+    }
+    .title {
+      font-size: 1.3rem;
     }
   }
-  .btn {
-    border: none;
-    padding: 1em;
-    border-radius: 0.2em;
-    font-size: 1em;
-    cursor: pointer;
-    box-sizing:border-box;
-  }
-  .btn.btn01 {
-    background: $primary;
-    color: $white;
-  }
-  .btn.btn02 {
-    
-  }
-  .btn.btn03 {
-    font-size: auto;
-    padding: 0;
-    color:$primary;
-    border:none;
-    background: transparent;
-  }
-  .title {
-    font-size: 1.3rem;
-  }
-}
 }

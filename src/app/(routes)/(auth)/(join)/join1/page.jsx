@@ -197,16 +197,18 @@ const Join1 = () => {
             />
           </div>
           {isInput.userIdIs &
-            isInput.userPwIs &
-            isInput.userPwChkIs &
-            isInput.userEmailIs &
-            allAgreed ? (
+          isInput.userPwIs &
+          isInput.userPwChkIs &
+          isInput.userEmailIs &
+          allAgreed ? (
             <button type="submit" className="btn btn01">
               가입하기
             </button>
-          ):(<button disabled>
-            가입하기
-          </button>)}
+          ) : (
+            <button className="btn" style={{ cursor: "auto" }} disabled>
+              가입하기
+            </button>
+          )}
         </form>
       </div>
     </div>

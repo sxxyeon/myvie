@@ -31,7 +31,7 @@ const Liked = ({ movies }) => {
               className={styles.close_btn}
               onClick={() => deleteMovie(movie)}
             >
-              <Icon icon="mdi:close" color="#fff" width="24" />
+              <Icon icon="mdi:close" color="#fff" width="20" />
             </button>
             <img src={`${imgUrl}w500/${movie.poster_path}`} alt="poster" onClick={() => router.push(`/movie/${movie.id}`)}/>
           </div>

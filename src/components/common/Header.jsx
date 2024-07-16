@@ -54,7 +54,7 @@ const Header = () => {
       <div className={styles.header_wrap}>
         <h1>
           <Link href="/">
-            <Image src={Logo} alt="logo" height="30" />
+            <Image src={Logo} alt="logo" height="25" />
           </Link>
         </h1>
         {path !== "/login" && (
@@ -67,7 +67,7 @@ const Header = () => {
               <>
                 <Link href="/my">
                   <div className={styles.profile_state}>
-                    <Image src={Profile} alt="profile" height="40" />
+                    <Image src={Profile} alt="profile" height="35" />
                   </div>
                 </Link>
               </>
