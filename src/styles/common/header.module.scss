@@ -1,5 +1,5 @@
-@import '../variables.scss';
-@import '../mixin.scss';
+@import "../variables.scss";
+@import "../mixin.scss";
 .header {
   position: fixed;
   top: 0;
@@ -25,7 +25,7 @@
   h1 {
     color: $primary;
     font-weight: bold;
-    a{
+    a {
       display: block;
       height: 30px;
       img {
@@ -33,7 +33,6 @@
         vertical-align: bottom;
       }
     }
-    
   }
   .right_header {
     flex: 1;
@@ -45,7 +44,7 @@
     div.input {
       position: relative;
       border-radius: 100px;
-      
+
       input {
         max-width: 140px;
         height: 35px;
@@ -60,7 +59,7 @@
       }
       svg {
         position: absolute;
-        right: .5rem;
+        right: 0.5rem;
         top: 47%;
         transform: translateY(-50%);
       }
@@ -68,7 +67,7 @@
 
     .profile_state {
       background: $primary;
-      width:35px;
+      width: 35px;
       height: 35px;
       line-height: 35px;
       text-align: center;
@@ -79,7 +78,7 @@
       width: 35px;
       height: 35px;
       line-height: 35px;
-      color:#fff;
+      color: #fff;
     }
   }
 }
