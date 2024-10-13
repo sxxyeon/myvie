@@ -54,7 +54,7 @@ const Header = () => {
       <div className={styles.header_wrap}>
         <h1>
           <Link href="/">
-            <Image src={Logo} alt="myvie" height="25" width="75" />
+            <Image src={Logo} alt="logo" height="25" />
           </Link>
         </h1>
         {path !== "/login" && (
