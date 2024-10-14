@@ -11,7 +11,7 @@ body,
 html {
   background: #000;
   color: #fff;
-  font-size: 16px;
+  font-size: 0.95rem;
   min-height: 100%;
   height: max-content;
   #wrap {
@@ -28,7 +28,7 @@ html {
   .btn {
     border: none;
     padding: 1em;
-    border-radius: 0.2em;
+    border-radius: 0.2rem;
     font-size: 1em;
     cursor: pointer;
     box-sizing: border-box;

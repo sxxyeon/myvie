@@ -1,5 +1,4 @@
-
-@import '../mixin';
+@import "../mixin";
 .arrow {
   position: absolute;
   bottom: 0;
@@ -8,24 +7,24 @@
   top: calc(50% + 25px);
   transform: translateY(-50%);
   cursor: pointer;
-  z-index:1;
-  opacity:.6;
+  z-index: 1;
+  opacity: 0.6;
 }
 .prev {
-  left: 1em;
+  left: 1rem;
 }
 .next {
-  right: 1em;
+  right: 1rem;
 }
 
-@include tablet{
-  .arrow{
+@include tablet {
+  .arrow {
     display: none;
   }
 }
 
-@include mobile{
-  .arrow{
+@include mobile {
+  .arrow {
     display: none;
   }
 }

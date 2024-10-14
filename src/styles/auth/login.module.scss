@@ -1,5 +1,5 @@
-@import '../variables.scss';
-@import '../mixin.scss';
+@import "../variables.scss";
+@import "../mixin.scss";
 .login_container {
   max-width: 450px;
   width: 100%;
@@ -7,10 +7,10 @@
   padding: 50px 20px 0;
   display: flex;
   flex-direction: column;
-  gap: 3em;
+  gap: 3rem;
   box-sizing: border-box;
   h2 {
-    font-size: 3em;
+    font-size: 3rem;
     font-weight: bold;
     text-align: center;
   }
@@ -18,27 +18,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1em;
+    gap: 1rem;
     input {
       width: 100%;
-      padding: 1.7em;
-      font-size: 1em;
+      padding: 1.7rem;
+      font-size: 1rem;
       box-sizing: border-box;
       border: none;
-      border-radius: 0.2em;
+      border-radius: 0.2rem;
       background: rgb(255, 255, 255, 0.3);
     }
     button {
       width: 100%;
-      padding: 1.4em;
-      font-size: 1.2em;
+      padding: 1.4rem;
+      font-size: 1.2rem;
       box-sizing: border-box;
     }
   }
   .auth_wrap {
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    gap: 2rem;
     text-align: center;
     ul {
       display: flex;

@@ -1,5 +1,5 @@
-@import '../variables.scss';
-@import '../mixin.scss';
+@import "../variables.scss";
+@import "../mixin.scss";
 .wrapper_modal {
   .modal {
     display: flex;
@@ -17,10 +17,10 @@
     max-width: 800px;
     max-height: 800px;
     z-index: 10;
-    border-radius: 1.7em;
+    border-radius: 0.5rem;
     overflow: hidden;
     box-shadow: 0 3px 40px rgb(0, 0, 0, 70%);
-    border:1px solid #333;
+    border: 1px solid #333;
     box-sizing: border-box;
     img {
       width: 100%;
@@ -31,7 +31,7 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
-      padding: 2em;
+      padding: 2rem;
       .modal_title {
         font-size: 1.4rem;
         font-weight: bold;
@@ -41,9 +41,10 @@
         flex-direction: row;
         gap: 10px;
         li {
-          padding: 6px;
+          padding: 6px 8px 4px;
           border: 1px solid #fff;
-          border-radius: 0.2em;
+          border-radius: 0.2rem;
+          font-size: 0.9rem;
         }
         li:first-child {
           background: #60bde5;
@@ -58,7 +59,7 @@
       display: flex;
       flex-direction: row;
       gap: 20px;
-      padding: 0 2em 2em;
+      padding: 0 2rem 2rem;
       button {
         cursor: pointer;
       }
@@ -70,14 +71,14 @@
         gap: 5px;
         width: 20%;
         border: 1px solid $primary;
-        border-radius: 0.2em;
+        border-radius: 0.2rem;
         color: $primary;
-        font-size: 1em;
+        font-size: 1rem;
       }
       button:first-child + a {
         display: block;
         flex: 1;
-        font-size: 1em;
+        font-size: 1rem;
         button {
           color: #fff;
           width: 100%;
@@ -90,7 +91,7 @@
   display: block;
   position: fixed;
   inset: 0;
-  content: '';
+  content: "";
   background: rgb(0, 0, 0, 0.7);
   width: 100vw;
   height: 100vh;
@@ -107,14 +108,13 @@
   cursor: pointer;
 }
 
-
 @include tablet {
   .wrapper_modal {
     .modal {
       width: 60%;
       max-height: max-content;
-      .btn_box{
-        button{
+      .btn_box {
+        button {
         }
       }
     }
@@ -126,10 +126,10 @@
     .modal {
       width: 90%;
       max-height: max-content;
-      .modal_content{
+      .modal_content {
         padding: 1.3rem;
       }
-      .btn_box{
+      .btn_box {
         padding: 0 1.3rem 1.3rem;
       }
     }

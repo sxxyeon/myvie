@@ -1,44 +1,44 @@
-@import '../mixin.scss';
-.search{
-    width: 80%;
-    max-width: 1200px;
-    display: grid;
-    margin: 130px auto;
-    grid-template-columns: repeat(auto-fill, minmax(15%, auto));
-    gap:2em;
-    box-sizing: border-box;
-    > div{
-        cursor:pointer;
-        border-radius:.3rem;
-        overflow:hidden;
-        img{
-            width: 100%;
-            height: 100%;
-        }
+@import "../mixin.scss";
+.search {
+  width: 80%;
+  max-width: 1200px;
+  display: grid;
+  margin: 130px auto;
+  grid-template-columns: repeat(auto-fill, minmax(15%, auto));
+  gap: 2rem;
+  box-sizing: border-box;
+  > div {
+    cursor: pointer;
+    border-radius: 0.3rem;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
     }
+  }
 }
-.no_result{
-    margin: 5em auto;
-    padding: 10em 0;
-    text-align: center;
+.no_result {
+  margin: 5em auto;
+  padding: 10em 0;
+  text-align: center;
 }
 
-@include mobile{
-    .search {
-      width: 100%;
-      margin: 130px auto 3em;
-      padding: 0 20px;
-      grid-template-columns: repeat(auto-fill, minmax(25%, auto));
-      gap:1rem;
-    }
+@include mobile {
+  .search {
+    width: 100%;
+    margin: 130px auto 3rem;
+    padding: 0 20px;
+    grid-template-columns: repeat(auto-fill, minmax(25%, auto));
+    gap: 1rem;
   }
-  
-  @include tablet{
-    .search {
-      width: 100%;
-      margin: 130px auto 3em;
-      padding: 0 40px;
-      grid-template-columns: repeat(auto-fill, minmax(18%, auto));
-      gap:1.7rem;
-    }
+}
+
+@include tablet {
+  .search {
+    width: 100%;
+    margin: 130px auto 3rem;
+    padding: 0 40px;
+    grid-template-columns: repeat(auto-fill, minmax(18%, auto));
+    gap: 1.7rem;
   }
+}

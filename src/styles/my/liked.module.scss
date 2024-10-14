@@ -1,13 +1,13 @@
-@import '../variables.scss';
-@import '../mixin.scss';
+@import "../variables.scss";
+@import "../mixin.scss";
 
 // 프로필
 .profile_container {
   width: 100%;
-  background: rgb(255,255,255,.1);
+  background: rgb(255, 255, 255, 0.1);
   padding: 110px 0 40px;
   box-sizing: border-box;
-  
+
   .profile_wrap {
     max-width: 1000px;
     margin: 0 auto;
@@ -15,9 +15,9 @@
     flex-direction: row;
     justify-content: space-between;
     .left_sec {
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
       .thum {
         width: 130px;
         height: 130px;
@@ -27,7 +27,10 @@
       }
       p {
         align-self: flex-end;
-        span{font-size: 2.3em; font-weight: bold;}
+        span {
+          font-size: 2.3rem;
+          font-weight: bold;
+        }
       }
     }
 
@@ -46,48 +49,53 @@
   display: grid;
   margin: 5em auto;
   grid-template-columns: repeat(auto-fill, minmax(15%, auto));
-  gap: 2em;
+  gap: 2rem;
   box-sizing: border-box;
   > .row_item {
-    position:relative;
+    position: relative;
     cursor: pointer;
-    border-radius: 0.3rem;
+    border-radius: 0.2rem;
     overflow: hidden;
     img {
       width: 100%;
       height: 100%;
     }
-    button{
+    button {
       background: transparent;
-      border:none;
-      position:absolute;
-      top:0;
+      border: none;
+      position: absolute;
+      top: 0;
       right: 0;
-      padding: .2rem;
+      padding: 0.2rem;
     }
   }
 }
 .no_liked {
   margin: 10em auto;
-  padding: 10em;
+  padding: 10rem;
   text-align: center;
 }
 
-@include mobile{
-  .profile_container{
+@include mobile {
+  .profile_container {
     padding: 100px 20px 30px;
     .profile_wrap {
       .left_sec {
         .thum {
           width: 90px;
           height: 90px;
-          img{ width: 90px; height:90px;}
+          img {
+            width: 90px;
+            height: 90px;
+          }
         }
         p {
-          span{font-size: 1.4rem; }
+          span {
+            font-size: 1.4rem;
+          }
         }
       }
-  
+
       .right_sec {
         .setting {
         }
@@ -98,13 +106,13 @@
     width: 100%;
     margin: 2em auto;
     padding: 0 20px;
-    gap:1rem;
+    gap: 1rem;
     grid-template-columns: repeat(auto-fill, minmax(25%, auto));
   }
 }
 
-@include tablet{
-  .profile_container{
+@include tablet {
+  .profile_container {
     padding: 100px 20px 30px;
   }
   .liked {

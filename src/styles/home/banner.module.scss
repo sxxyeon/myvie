@@ -1,4 +1,4 @@
-@import '../mixin.scss';
+@import "../mixin.scss";
 .banner {
   position: relative;
   padding: 30px;
@@ -13,7 +13,7 @@
       font-size: 3rem;
       font-weight: bold;
       margin-bottom: 30px;
-      line-height:3rem;
+      line-height: 3rem;
     }
 
     .overview {
@@ -26,7 +26,7 @@
 }
 .banner:after {
   position: absolute;
-  content: '';
+  content: "";
   display: block;
   bottom: 0;
   left: 0;
@@ -40,19 +40,18 @@
   );
 }
 
-@include mobile{
+@include mobile {
   .banner {
     height: 400px !important;
     div.title_wrap {
       h2 {
         font-size: 1.8rem;
-        line-height:1.8rem;
+        line-height: 1.8rem;
       }
-  
       .overview {
-        width:100%;
+        width: 100%;
+        font-size: 0.95rem;
       }
     }
   }
-  
 }

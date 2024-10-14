@@ -1,36 +1,30 @@
-@import '../variables.scss';
-@import '../mixin.scss';
-.footer{
+@import "../variables.scss";
+@import "../mixin.scss";
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 5rem;
+  border-top: 1px solid $dgrey;
+  font-size: 0.9rem;
+  .footer_top {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 5em;
-    border-top: 1px solid $dgrey;
-    font-size:.9rem;
-    .footer_top{
-        display: flex;
-        flex-direction: row;
-        gap:50px;
-        align-items: center;
-        h1{
-            font-size: 3em;
-            color:$primary;
-            font-weight: bold;
-        }
-        ul{
-            display: flex;
-            flex-direction: row;
-            gap:20px;
-            li{}
-        }
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
+    ul {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
     }
-    .footer_bottom{
-        text-align: center;
-    }
+  }
+  .footer_bottom {
+    text-align: center;
+  }
 }
 
-@include mobile{
-    .footer{
-        padding: 3rem 1.3rem;
-    }
+@include mobile {
+  .footer {
+    padding: 3rem 1.3rem;
+  }
 }

@@ -1,87 +1,88 @@
-'use client'
-import React, { useEffect, useState } from 'react'
-import { useMediaQuery } from 'react-responsive'
-import { Icon } from '@iconify/react'
-import styles from '../../styles/modal/modal.module.scss'
-import Link from 'next/link'
+"use client";
+import React, { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
+import { Icon } from "@iconify/react";
+import styles from "../../styles/modal/modal.module.scss";
+import Link from "next/link";
 const Modal = ({ movie, setIsModalOpen }) => {
-
-  const [liked, setLiked] = useState(false)
-  const [likedList, setLikedList] = useState([])
-  const isMobile = useMediaQuery({ maxWidth: 700 })
+  const [liked, setLiked] = useState(false);
+  const [likedList, setLikedList] = useState([]);
+  const isMobile = useMediaQuery({ maxWidth: 700 });
 
   useEffect(() => {
-    document.body.style.overflowY = 'hidden'
+    document.body.style.overflowY = "hidden";
     if (movie && movie.id) {
-      fetchData(movie.id)
+      fetchData(movie.id);
     }
     return () => {
-      document.body.style.overflowY = 'scroll'
-    }
-  }, [movie.id])
+      document.body.style.overflowY = "scroll";
+    };
+  }, [movie.id]);
 
   const fetchData = async (id) => {
     const resp = await fetch(`${process.env.NEXT_PUBLIC_JSON}/liked`, {
-      method: 'GET',
-      cache: 'no-store',
-      credentials: 'include',
-      mode: 'cors',
-    })
-    const json = await resp.json()
-    setLikedList(json)
-    const likedInit = json.some((item) => String(item.id) === String(id))
-    setLiked(likedInit)
-
-  }
+      method: "GET",
+      cache: "no-store",
+      credentials: "include",
+      mode: "cors",
+    });
+    const json = await resp.json();
+    setLikedList(json);
+    const likedInit = json.some((item) => String(item.id) === String(id));
+    setLiked(likedInit);
+  };
   const truncate = (overview) => {
     const truncated =
-      overview.length > 100 ? overview.slice(0, 99) + '...' : overview
-    return truncated
-  }
+      overview.length > 100 ? overview.slice(0, 99) + "..." : overview;
+    return truncated;
+  };
   const handleLike = async (id) => {
     if (liked) {
       // 이미 찜한 상태일 때는 찜 목록에서 삭제
       const options = {
-        method: 'DELETE',
-        credentials: 'include',
-        mode: 'cors',
-      }
+        method: "DELETE",
+        credentials: "include",
+        mode: "cors",
+      };
       const resp = await fetch(
         `${process.env.NEXT_PUBLIC_JSON}/liked/${parseInt(id)}`,
         options
-      )
+      );
       if (!resp.ok) {
-        throw new Error('Failed to remove from liked list.')
+        throw new Error("Failed to remove from liked list.");
       }
-      alert('찜 목록에서 삭제되었습니다.')
-      setLiked(false)
+      alert("찜 목록에서 삭제되었습니다.");
+      setLiked(false);
     } else {
       // 찜 목록에 추가
 
       // 찜 목록에 추가하기 전에 중복 확인
-      const isAlreadyLiked = likedList.some((item) => item.id === id)
+      const isAlreadyLiked = likedList.some((item) => item.id === id);
       if (isAlreadyLiked) {
-        alert('이미 찜 목록에 있습니다.')
-        return
+        alert("이미 찜 목록에 있습니다.");
+        return;
       }
       const options = {
-        method: 'post',
+        method: "post",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ id: String(id) }),
-        credentials: 'include',
-        mode: 'cors',
-      }
-      const resp = await fetch(`${process.env.NEXT_PUBLIC_JSON}/liked`, options)
+        credentials: "include",
+        mode: "cors",
+      };
+      const resp = await fetch(
+        `${process.env.NEXT_PUBLIC_JSON}/liked`,
+        options
+      );
       if (!resp.ok) {
-        throw new Error('Failed to add to liked list.')
+        throw new Error("Failed to add to liked list.");
       }
-      alert('찜 목록에 추가되었습니다.')
-      setLiked(true)
+      alert("찜 목록에 추가되었습니다.");
+      setLiked(true);
     }
-  }
-  const imgUrl = `https://image.tmdb.org/t/p/`
+  };
+  const imgUrl = `https://image.tmdb.org/t/p/`;
   return (
     movie && (
       <div className="presentation" role="presentation">
@@ -91,7 +92,7 @@ const Modal = ({ movie, setIsModalOpen }) => {
               className={styles.close_btn}
               onClick={() => setIsModalOpen(false)}
             >
-              <Icon icon="mdi:close" color="#fff" width="30" />
+              <Icon icon="mdi:close" color="#fff" width="20" />
             </button>
             <img
               src={`${imgUrl}/original/${movie.backdrop_path}`}
@@ -101,9 +102,9 @@ const Modal = ({ movie, setIsModalOpen }) => {
               <h2 className={styles.modal_title}>
                 {movie.title ? movie.title : name}
               </h2>
-              
+
               <ul>
-                <li>{movie.adult ? '19' : '15'}</li>
+                <li>{movie.adult ? "19" : "15"}</li>
                 <li>{movie.release_date?.slice(0, 4)}</li>
                 <li>{Math.floor(movie.vote_average)}점대</li>
               </ul>
@@ -123,7 +124,7 @@ const Modal = ({ movie, setIsModalOpen }) => {
                     width="30"
                   />
                 )}
-                {isMobile ? '' : '찜하기'}
+                {isMobile ? "" : "찜하기"}
               </button>
 
               <Link href={`/movie/${movie.id}`}>
@@ -134,7 +135,7 @@ const Modal = ({ movie, setIsModalOpen }) => {
         </div>
       </div>
     )
-  )
-}
+  );
+};
 
-export default Modal
+export default Modal;

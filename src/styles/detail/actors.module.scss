@@ -1,17 +1,17 @@
-@import '../variables.scss';
-@import '../mixin.scss';
+@import "../variables.scss";
+@import "../mixin.scss";
 
 .actors_container {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto; 
-    padding: 20px;
-    
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
   .actors_wrap {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 2em;
+    gap: 2rem;
     max-width: 1000px;
     height: max-content;
     margin: 20px auto 0;
@@ -33,16 +33,16 @@
       }
       p {
         text-align: center;
-        margin-top: 1em;
+        margin-top: 1rem;
       }
     }
   }
 }
 
-@include mobile{
-  .actors_container{
+@include mobile {
+  .actors_container {
     .actors_wrap {
-      gap:1.3rem;
+      gap: 1.3rem;
       .actor {
         width: 90px;
         flex-shrink: 0;
