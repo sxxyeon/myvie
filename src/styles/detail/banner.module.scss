@@ -45,10 +45,12 @@
     flex-direction: row;
     gap: 10px;
     li {
-      padding: 6px 8px 4px;
+      padding: 4px 8px;
       border: 1px solid #fff;
       border-radius: 0.2rem;
       font-size: 0.9rem;
+      height: 18px;
+      line-height: 1.5;
     }
     li:first-child {
       background: #60bde5;
