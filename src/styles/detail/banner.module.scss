@@ -63,7 +63,7 @@
     width: 130px;
     background: rgb(255, 255, 255, 0.8);
     border: none;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: $primary;
     border-radius: 5px;
   }
@@ -100,6 +100,10 @@
       }
       button {
         padding: 0.8rem;
+      }
+      p {
+        line-height: 1.5rem;
+        font-size: 0.95rem;
       }
     }
     .banner_poster {
