@@ -14,6 +14,7 @@ html {
   font-size: 0.95rem;
   min-height: 100%;
   height: max-content;
+  scroll-behavior: smooth;
   #wrap {
     display: flex;
     flex-direction: column;
@@ -49,7 +50,7 @@ html {
   .title {
     font-size: 1.6rem;
     font-weight: bold;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto 1em;
   }
 }
@@ -97,5 +98,24 @@ html {
     .title {
       font-size: 1.2rem;
     }
+  }
+}
+
+//pagination
+.swiper-pagination {
+  bottom: 120px !important;
+  .swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.3) !important;
+    width: 20px !important;
+    height: 2px !important;
+  }
+  .swiper-pagination-bullet-active {
+    background: rgba(254, 21, 60, 0.8) !important;
+  }
+  @include tablet {
+    bottom: 50px !important;
+  }
+  @include mobile {
+    display: none;
   }
 }

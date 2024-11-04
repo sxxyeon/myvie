@@ -1,8 +1,8 @@
-@import '../mixin';
+@import "../mixin";
 .videos_container {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 7em auto;
-  padding:0 20px; 
+  padding: 0 20px;
 
   .videos_wrap {
     position: relative;
@@ -24,11 +24,10 @@
 }
 
 @include mobile {
-  .videos_container{
+  .videos_container {
     margin: 3rem auto;
-    .videos_wrap{
-      iframe{
-
+    .videos_wrap {
+      iframe {
       }
     }
   }

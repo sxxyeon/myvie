@@ -2,9 +2,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import styles from "../../styles/common/header.module.scss";
+import styles from "@/styles/common/header.module.scss";
 import { useRouter } from "next/navigation";
-import { useUser } from "../../context/LoginContext";
+import { useUser } from "@/context/LoginContext";
 import FeatherIcon from "feather-icons-react";
 import Image from "next/image";
 import Logo from "/public/img/logo.png";
@@ -12,6 +12,7 @@ import Profile from "/public/img/profile.png";
 const Header = () => {
   const router = useRouter();
   const [show, setShow] = useState(false);
+  const [isInputShow, setIsInputShow] = useState(false);
   const [search, setSearch] = useState("");
   const { users, fetchUserData } = useUser();
 
@@ -29,26 +30,17 @@ const Header = () => {
     }
   }, [path]);
 
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 30) {
-        setShow(true);
-      } else {
-        setShow(false);
-      }
-    });
-  }, []);
-
   const onSearch = (e) => {
-    const { value, name } = e.target;
     setSearch(e.target.value);
     router.push(`/search?q=${e.target.value}`);
+  };
+  const showInput = () => {
+    setIsInputShow(!isInputShow);
   };
 
   return (
     <header
-      className={`${styles.header} ${show ? styles.show : ""} ${
-        path == "/" ? "" : styles.show
+      className={`${styles.header} 
       }`}
     >
       <div className={styles.header_wrap}>
@@ -60,14 +52,24 @@ const Header = () => {
         {path !== "/login" && (
           <div className={styles.right_header}>
             <div className={styles.input}>
-              <input type="text" onChange={onSearch} value={search} />
-              <FeatherIcon icon="search" size="30" stroke="#ddd" />
+              <input
+                type="text"
+                onChange={onSearch}
+                value={search}
+                className={isInputShow ? styles.show : ""}
+              />
+              <FeatherIcon
+                icon="search"
+                size="24"
+                stroke="#ddd"
+                onClick={showInput}
+              />
             </div>
             {foundUser ? (
               <>
                 <Link href="/my">
                   <div className={styles.profile_state}>
-                    <Image src={Profile} alt="profile" height="35" />
+                    <Image src={Profile} alt="profile" height="30" />
                   </div>
                 </Link>
               </>

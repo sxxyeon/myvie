@@ -1,8 +1,8 @@
-'use client'
-import React from 'react'
-import styles from '../../styles/home/row.module.scss'
+"use client";
+import React from "react";
+import styles from "../../styles/home/row.module.scss";
 const RowItem = ({ movie, onClick, isBig }) => {
-  const imgUrl = `https://image.tmdb.org/t/p/`
+  const imgUrl = `https://image.tmdb.org/t/p/`;
   return (
     movie.poster_path &&
     movie.backdrop_path && (
@@ -20,7 +20,7 @@ const RowItem = ({ movie, onClick, isBig }) => {
         />
       </div>
     )
-  )
-}
+  );
+};
 
-export default RowItem
+export default RowItem;

@@ -1,0 +1,50 @@
+@import "../mixin.scss";
+.category_wrap {
+  overflow: hidden;
+  @include desktop {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  ul {
+    width: 100%;
+    max-width: 1200px;
+    padding: 1rem 0.5rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer and Edge */
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Edge */
+    }
+    box-sizing: border-box;
+    @include mobile {
+      gap: 15px;
+      padding: 1rem;
+    }
+    @include tablet {
+      gap: 15px;
+      padding: 1rem;
+    }
+  }
+  li {
+    @include mobile {
+      flex-shrink: 0;
+      background: rgba(254, 21, 60, 0.3);
+      border: 1px solid #fe153c;
+      border-radius: 30px;
+      padding: 7px 10px;
+      font-size: small;
+    }
+    @include tablet {
+      flex-shrink: 0;
+      background: rgba(254, 21, 60, 0.3);
+      border: 1px solid #fe153c;
+      border-radius: 30px;
+      padding: 7px 10px;
+      font-size: small;
+    }
+    cursor: pointer;
+  }
+}

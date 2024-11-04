@@ -1,46 +1,41 @@
-'use client'
-import React, { useEffect, useState, useCallback } from 'react'
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import fetchFromApi from './../../../lib/api'
-import Link from 'next/link'
-import SwiperCore from 'swiper'
-import styles from '../../styles/home/row.module.scss'
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-import 'swiper/css/scrollbar'
+"use client";
+import React, { useEffect, useState, useCallback } from "react";
+import { Autoplay } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import fetchFromApi from "./../../../lib/api";
+import Link from "next/link";
+import SwiperCore from "swiper";
+import styles from "../../styles/home/row.module.scss";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
-const SlideRow = ({ title, id, fetchUrl}) => {
-    const [movies, setMovies] = useState([])
+const SlideRow = ({ title, id, fetchUrl }) => {
+  const [movies, setMovies] = useState([]);
 
+  const imgUrl = `https://image.tmdb.org/t/p/`;
 
-    SwiperCore.use([Navigation, Autoplay])
-    const imgUrl = `https://image.tmdb.org/t/p/`
+  const fetchData = useCallback(async () => {
+    const resp = await fetchFromApi(fetchUrl);
+    setMovies(resp.results);
+  }, [fetchUrl]);
 
-    const fetchData = useCallback(async () => {
-        const resp = await fetchFromApi(fetchUrl)
-        setMovies(resp.results)
-      }, [fetchUrl])
-    
-      useEffect(() => {
-        fetchData()
-      }, [])
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <div className={`${styles.row} ${styles.big} ${styles.slide}`}>
       <h2>{title}</h2>
       <Swiper
         className={styles.row_wrap}
+        modules={[Autoplay]}
         breakpoints={{
-          1378: {
-            slidesPerView: 6, // 한번에 보이는 슬라이드 갯수
-            slidesPerGroup: 6, // 몇개씩 슬라이드 할지
+          1024: {
+            slidesPerView: 5, // 한번에 보이는 슬라이드 갯수
+            slidesPerGroup: 5, // 몇개씩 슬라이드 할지
           },
-          998: {
-            slidesPerView: 5,
-            slidesPerGroup: 5,
-          },
-          600: {
+          650: {
             slidesPerView: 4,
             slidesPerGroup: 4,
           },
@@ -50,7 +45,6 @@ const SlideRow = ({ title, id, fetchUrl}) => {
           },
         }}
         spaceBetween={20}
-        //navigation
         loop={true}
         autoplay={{
           delay: 2500,
@@ -59,16 +53,16 @@ const SlideRow = ({ title, id, fetchUrl}) => {
       >
         {movies.map((movie) => {
           return (
-            <SwiperSlide key={movie.id}>
+            <SwiperSlide key={movie.id} className={styles.slide_item}>
               <Link href={`/movie/${movie.id}`}>
                 <img src={`${imgUrl}w500/${movie.poster_path}`} alt="poster" />
               </Link>
             </SwiperSlide>
-          )
+          );
         })}
       </Swiper>
     </div>
-  )
-}
+  );
+};
 
-export default SlideRow
+export default SlideRow;
